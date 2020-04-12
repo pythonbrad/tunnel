@@ -81,7 +81,12 @@ def server_loop(local_host,local_port,remote_host,remote_port,receive_first):
 	print("[*] Listening on %s:%d" % (local_host,local_port))
 	server.listen(5)
 	while True:
-		client_socket, addr = server.accept()
+		try:
+			client_socket, addr = server.accept()
+		except KeyboardInterrupt:
+			server.close()
+			print("Aborting...")
+			sys.exit(0)
 		# print out the local connection information
 		print("[==>] Received incoming connection from %s:%d" % (addr[0],addr[1]))
 		# start a thread to talk to the remote host

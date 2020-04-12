@@ -20,6 +20,7 @@ def receive_from(connection):
 		pass
 	return buffer
 
+
 # Create your views here.
 # This view init the connection
 @csrf_exempt
@@ -94,7 +95,10 @@ def close(request):
 		if token and key in temp:
 			# We get the socket to use
 			remote_socket = temp[key]
+			# We close the connection
 			remote_socket.close()
+			# We delete in the memory
+			del temp[key]
 			return HttpResponse('close')
 	return HttpResponse('error')
 
