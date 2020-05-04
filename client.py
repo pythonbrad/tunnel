@@ -1,14 +1,36 @@
 #!/usr/bin/env python
+'''
+    Author: pythonbrad
+    Email: fomegnemeudje@outlook.com
+    Github: http://github.com/pythonbrad
+
+ * LICENSE
+ * 
+ * Copyright 2020 pythonbrad <fomegnemeudje@outlook.com>
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ * 
+ * 
+'''
 import sys
 import socket
 import threading
 import base64
 import requests
 import time
-
-"""
-	SHOW ALL INFO FOR THE PRODUCTION MODE
-"""
 
 print("CONVERT TO PYTHON2, TO EXPLOIT ALL THE HEXDUMP AND FOR THE SPEED")
 
@@ -169,7 +191,8 @@ def receive_from(connection, dest, send_name='', dest_name=''):
 			else:
 				has_recv = True
 				print("[==>] Received %d bytes from %s." % (len(buffer), send_name))
-				#hexdump(local_buffer)
+				# remove after the converting in python3 because not supported
+				#hexdump(buffer)
 				# send it to our request handler
 				buffer = request_handler(buffer)
 				# send off the data to the dest
